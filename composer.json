@@ -11,5 +11,7 @@
             "email": "97645851+noahgerard@users.noreply.github.com"
         }
     ],
-    "require": {}
+    "require": {
+        "vlucas/phpdotenv": "^5.6"
+    }
 }

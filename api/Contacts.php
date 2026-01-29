@@ -76,7 +76,7 @@ if($request->method == 'PUT') {
 
     if($conn->affected_rows == 0) {
         $conn->close();
-        $response->sendError("No contact was affected (contacted does not exist or existing values were already the same as new values)");
+        $response->sendError("Contact does not exist, existing values are already equal to new values, or user does not have this contact");
     }
 
     $conn->close();

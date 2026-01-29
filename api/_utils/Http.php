@@ -2,52 +2,51 @@
 
 namespace Utils\Http;
 
-class Request {
+class ClientRequest {
     public $method;
     public $uri;
     public $headers;
     public $body;
 
-    private $has_json_body;
-
     public function __construct() {
         $this->method = $_SERVER['REQUEST_METHOD'];
         $this->uri = $_SERVER['REQUEST_URI'];
         $this->headers = getallheaders();
-        $this->body = (array) json_decode(file_get_contents('php://input'));
-
-        $this->has_json_body = (json_last_error() == JSON_ERROR_NONE);
+        $this->body = file_get_contents('php://input');
     }
 
-    function hasJsonBody() {
-        return $this->has_json_body;
+    function getJsonBody() {
+        $json_body = json_decode($this->body);
+        if(json_last_error() == JSON_ERROR_NONE) {
+            return (array) $json_body;
+        } else {
+            return null;
+        }
     }
 }
 
-class Response {
+class ServerResponse {
     public $body = [];
 
-    function send() {
+    function sendJson() {
         header('Content-Type: application/json');
         echo json_encode($this->body);
+        exit;
     }
 
     function sendResult($res) {
         $this->body = ["status" => "success", "result" => array_values((array)$res)];
-        $this->send();
-        exit;
+        $this->sendJson();
     }
 
     function sendError($msg, $error_code = 500) {
         http_response_code($error_code);
         $this->body = ["status" => "error", "message" => $msg];
-        $this->send();
-        exit;
+        $this->sendJson();
     }
 
     function sendSuccess() {
         $this->body = ["status" => "success"];
-        $this->send();
-        exit;
+        $this->sendJson();
     }
 };

@@ -5,8 +5,8 @@ require __DIR__ . '/_utils/Http.php';
 require dirname(__DIR__) . '/vendor/autoload.php';
 
 use Utils\Database;
-use Utils\Http\Request;
-use Utils\Http\Response;
+use Utils\Http\ClientRequest;
+use Utils\Http\ServerResponse;
 use Dotenv\Dotenv;
 
 # Load environment variables
@@ -14,21 +14,22 @@ $dotenv = Dotenv::createImmutable(dirname(__DIR__));
 $dotenv->load();
 
 # Init http util
-$request = new Request();
-$response = new Response();
+$request = new ClientRequest();
+$response = new ServerResponse();
 
 # Send error if request body isn't json formatted
-if($request->method != 'GET' && !$request->hasJsonBody()) {
+$data = $request->getJsonBody();
+if($request->method != 'GET' && $data === null) {
     $response->sendError("Invalid data format");
 }
 
 # Retrieve contact information
 $user_id = $request->headers['user_id'] ?? null;
-$contact_id = $request->body['contact_id'] ?? null;
-$first_name = $request->body['first_name'] ?? null;
-$last_name = $request->body['last_name'] ?? null;
-$phone = $request->body['phone'] ?? null;
-$email = $request->body['email'] ?? null;
+$contact_id = $data['contact_id'] ?? null;
+$first_name = $data['first_name'] ?? null;
+$last_name = $data['last_name'] ?? null;
+$phone = $data['phone'] ?? null;
+$email = $data['email'] ?? null;
 
 # Setup mysql connection
 $conn = Database::connect();

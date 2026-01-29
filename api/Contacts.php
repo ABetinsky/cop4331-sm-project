@@ -2,6 +2,7 @@
 
 require __DIR__ . '/_utils/Database.php';
 require __DIR__ . '/_utils/Http.php';
+require __DIR__ . '/_utils/api.php';
 require dirname(__DIR__) . '/vendor/autoload.php';
 
 use Dotenv\Dotenv;
@@ -23,6 +24,18 @@ $first_name = $data['first_name'] ?? null;
 $last_name = $data['last_name'] ?? null;
 $phone = $data['phone'] ?? null;
 $email = $data['email'] ?? null;
+
+# Sanatize and validate input
+if(get_request_method() == 'POST' || get_request_method() == 'PUT') {
+    $first_name = sanitize_input($first_name);
+    $last_name = sanitize_input($last_name);
+    $phone = sanitize_input($phone);
+    $email = sanitize_input($email);
+
+    if(!validate_email($email)) {
+        send_error("Invalid email address");
+    }
+}
 
 # Setup mysql connection
 $conn = init_db_connection();

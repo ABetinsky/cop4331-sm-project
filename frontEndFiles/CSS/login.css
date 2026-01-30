@@ -1,0 +1,13 @@
+/*Code written by Adam Betinsky */
+
+body {
+  background-image: url("../images/backgroundPictures/OfficeLogo.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.mainStuff {
+  margin: 50px;
+  text-align: center;
+  position: relative;
+}

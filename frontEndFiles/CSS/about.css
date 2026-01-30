@@ -1,0 +1,15 @@
+/*Code written by Adam Betinsky */
+
+body {
+  background-image: url("../images/backgroundPictures/DevelopersPage.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.mainStuff {
+  margin: 50px;
+  text-align: left;
+  position: relative;
+  color: white;
+  margin-top: 150px;
+}

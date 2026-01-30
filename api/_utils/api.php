@@ -1,13 +1,5 @@
 <?php
-
-# Allow only one HTTP method
-function http_allow_only(string $req_type) {
-  if ($_SERVER["REQUEST_METHOD"] !== $req_type) {
-    http_response_code(500);
-    echo "Method not allowed";
-    exit;
-  }
-}
+require __DIR__ . '/vendor/autoload.php';
 
 function sanitize_input(string $input) {
    $input = trim($input);
@@ -32,6 +24,14 @@ function validate_password(string $password)
 function validate_email(string $email)
 {
   if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    return false;
+  }
+
+  return true;
+}
+
+function validate_username(string $username) {
+  if (strlen($username) || strlen($username) > 10) {
     return false;
   }
 

@@ -8,7 +8,7 @@ require __DIR__ . '/../vendor/autoload.php';
 # Send error if request body isn't json formatted
 $data = get_json_body();
 if (get_request_method() != 'GET' && $data === null) {
-  send_error("Invalid data format");
+  send_error("Invalid data format", 400);
 }
 
 # Retrieve contact information
@@ -37,7 +37,7 @@ $db = init_db_connection();
 # Check if target user exists
 if (!check_user_exists($db, $user_id)) {
   $db->close();
-  send_error("User does not exist");
+  send_error("User does not exist", 400);
 }
 
 # TODO: confirm user session, send error if session is invalid.
@@ -56,7 +56,7 @@ if (get_request_method() == 'POST') {
   }
 
   $db->close();
-  send_success();
+  send_message("Successfully added contact");
 } 
 
 #------------------------
@@ -74,11 +74,11 @@ if (get_request_method() == 'PUT') {
 
   if ($db->affected_rows == 0) {
     $db->close();
-    send_error("Contact does not exist, existing values are already equal to new values, or user does not have this contact");
+    send_error("Contact does not exist, existing values are already equal to new values, or user does not have this contact", 400);
   }
 
   $db->close();
-  send_success();
+  send_message("Successfully updated contact");
 }
 
 #---------------------------
@@ -94,11 +94,11 @@ else if (get_request_method() == 'DELETE') {
 
   if ($db->affected_rows == 0) {
     $db->close();
-    send_error("Contact does not exist or user does not have this contact");
+    send_error("Contact does not exist or user does not have this contact", 400);
   }
 
   $db->close();
-  send_success();
+  send_message("Successfully removed contact");
 }
 
 #----------------------
@@ -123,5 +123,5 @@ else if (get_request_method() == 'GET') {
 #---------------------------
 else {
   $db->close();
-  send_error("Invalid request method");
+  send_error("Method not allowed", 500);
 }

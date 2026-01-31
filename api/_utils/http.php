@@ -49,12 +49,11 @@ function send_result(object|array $result)
 function send_error(string $msg, int $error_code = 500) 
 {
   http_response_code($error_code);
-  $body = ["status" => "error", "message" => $msg];
+  $body = ["error" => $msg];
   send_json($body);
 }
 
-function send_success() 
-{
-  $body = ["status" => "success"];
+function send_message($msg) {
+  $body = ["message" => $msg];
   send_json($body);
 }

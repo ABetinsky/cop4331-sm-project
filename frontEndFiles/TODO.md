@@ -16,4 +16,5 @@ index.html:
 Other:
 1. Make the page for when logged in. Consider a refresh of some kind?
 2. Image acknowledgements page?
+3. Fix scaling issue with text and buttons?
 

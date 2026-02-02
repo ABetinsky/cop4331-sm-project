@@ -42,9 +42,10 @@ function create_user(mysqli $db, string $username, string $email, string $hashed
   $statement->bind_param("sss", $username, $email, $hashed_password);
 
   if ($statement->execute()) {
-    return true;
+    # Return user id of last name created
+    return $db->insert_id;
   } else {
-    return false;
+    return 0;
   }
 }
 

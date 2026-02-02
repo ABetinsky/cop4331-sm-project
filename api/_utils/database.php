@@ -24,6 +24,18 @@ function check_user_exists(mysqli $db, int $user_id)
   return $result->num_rows > 0;
 }
 
+# Check if user with email already exists
+function unique_email(mysqli $db, string $email)
+{
+  $statement = $db->prepare("SELECT id FROM users WHERE email = ?");
+  $statement->bind_param("s", $email);
+  $statement->execute();
+
+  $result = $statement->get_result();
+
+  return $result->num_rows === 0;
+}
+
 # Check if user with username already exists
 function unique_username(mysqli $db, string $username)
 {

@@ -6,6 +6,10 @@ function is_logged_in()
   return $_SESSION["logged_in"] ?? false;
 }
 
+function session_user_id() {
+  return $_SESSION["user_id"];
+}
+
 function session_login($user_id)
 {
   session_regenerate_id(true);
@@ -17,4 +21,5 @@ function session_logout()
 {
   session_unset();
   session_destroy();
+  $_SESSION["logged_in"] = false;
 }

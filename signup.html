@@ -39,14 +39,20 @@
       <!-- ADD THE ACTION LINK AND BUTTON LINK LATER-->
       <form class="signup-form" action="api/user/signup.php" method="POST">
         <input
+          type="email"
+          name="email"
+          placeholder="Enter an email"
+          required
+        />
+        <input
           type="text"
-          name="Username"
+          name="username"
           placeholder="Enter a Username"
           required
         />
         <input
           type="text"
-          name="Password"
+          name="password"
           placeholder="Enter a Password"
           required
         />

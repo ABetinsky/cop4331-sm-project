@@ -3,6 +3,7 @@ header('Content-Type: application/json');
 
 require "../_utils/database.php";
 require "../_utils/api.php";
+require "../_utils/session.php";
 
 $db_connection = init_db_connection();
 
@@ -45,9 +46,10 @@ if (!unique_username($db_connection, $username)) {
 
 /* Create User */
 $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-$create_user_success = create_user($db_connection, $username, $email, $hashed_password);
+$created_usr_id = create_user($db_connection, $username, $email, $hashed_password);
 
 if ($create_user_success) {
+  session_login($created_usr_id);
   echo json_encode(["message" => "Successfully created a new user"]);
 } else {
   http_response_code(500);

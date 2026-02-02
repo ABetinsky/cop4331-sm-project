@@ -3,6 +3,7 @@
 require __DIR__ . '/_utils/database.php';
 require __DIR__ . '/_utils/http.php';
 require __DIR__ . '/_utils/api.php';
+require __DIR__ . '/_utils/session.php';
 require __DIR__ . '/../vendor/autoload.php';
 
 # Send error if request body isn't json formatted
@@ -54,7 +55,10 @@ if ((get_request_method() == 'PUT' || get_request_method() == 'DELETE') && !chec
   send_error("Contact does not exist", 400);
 }
 
-# TODO: confirm user session, send error if session is invalid.
+# Confirm session
+if(!is_logged_in()) {
+  send_error("Invalid session", 401);
+}
 
 #----------------------
 #  POST - add contact

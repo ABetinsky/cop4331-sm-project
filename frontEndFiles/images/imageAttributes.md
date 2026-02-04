@@ -10,4 +10,3 @@ GPT Images: Copier Up Close (USED), Copy Logo, Human Resources
 
 New Office background:
 https://stock.adobe.com/search?k=empty+office
-

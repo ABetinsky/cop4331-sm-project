@@ -1,0 +1,100 @@
+<!-- Code Written by Darren Squires Jr -->
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>COPY – Contacts</title>
+
+	<!-- Existing Header CSS -->
+	<link href="/frontEndFiles/CSS/header.css" rel="stylesheet" />
+
+	<!-- Contacts Page CSS -->
+	<link href="/frontEndFiles/CSS/contacts.css" rel="stylesheet" />
+</head>
+
+<body>
+
+	<!-- ================= HEADER (UNCHANGED) ================= -->
+	<section class="headerStuff">
+		<h1>COPY</h1>
+
+		<a href="index.html" class="copierLogo">
+			<img
+					src="frontEndFiles/images/buttonPictures/CopyLogo.png"
+					alt="Copy Logo"
+			/>
+		</a>
+
+		<a href="login.html" class="loginButton">
+			<img
+					src="frontEndFiles/images/buttonPictures/LoginLogo.png"
+					alt="Login Logo"
+			/>
+		</a>
+
+		<a href="signup.html" class="signUpButton">
+			<img
+					src="frontEndFiles/images/buttonPictures/SignUpLogo.png"
+					alt="Sign Up Logo"
+			/>
+		</a>
+
+		<a href="about.html" class="aboutUsButton">
+			<img
+					src="frontEndFiles/images/buttonPictures/DevelopersLogo.png"
+					alt="About the Developers Logo"
+			/>
+		</a>
+	</section>
+	<!-- ================= END HEADER ================= -->
+
+	<!-- ================= CONTACTS PAGE ================= -->
+	<main class="contactsPage">
+
+		<!-- Controls -->
+		<section class="controls">
+			<input
+					type="text"
+					id="searchInput"
+					placeholder="Search contacts..."
+			/>
+			<button id="refreshBtn">Refresh</button>
+		</section>
+
+		<!-- Add Contact -->
+		<section class="add-contact">
+			<h2>Add Contact</h2>
+
+			<input id="firstName" placeholder="First Name" />
+			<input id="lastName" placeholder="Last Name" />
+			<input id="phone" placeholder="Phone" />
+			<input id="email" placeholder="Email" />
+
+			<button id="addBtn">Add</button>
+		</section>
+
+		<!-- Contact List -->
+		<section class="contact-list">
+			<table>
+				<thead>
+				<tr>
+					<th>First</th>
+					<th>Last</th>
+					<th>Phone</th>
+					<th>Email</th>
+					<th>Action</th>
+				</tr>
+				</thead>
+				<tbody id="contactsTable"></tbody>
+			</table>
+		</section>
+
+	</main>
+	<!-- ================= END CONTACTS ================= -->
+
+	<!-- Contacts JS (API version) -->
+	<script src="/frontEndFiles/JS/contacts.js"></script>
+
+</body>
+</html>

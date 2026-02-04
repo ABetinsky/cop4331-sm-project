@@ -36,5 +36,5 @@ Darren:
 2. Change the photo buttons on the static bar to icons (basically change header.css and possible the header section in each html file)
  - MAKE SURE TO WRITE DOWN LINKS OF ANY ICON OR PHOTO YOU GET
 
-3. Please try to use the orginization with folders we already have.
+
 

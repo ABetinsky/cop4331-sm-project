@@ -1,8 +1,8 @@
 <?php
 
-#--------------------------
-#  Client Request Utility
-#--------------------------
+/* --------------------------
+     Client Request Utility
+   -------------------------- */
 
 function get_request_method() 
 {
@@ -29,9 +29,9 @@ function get_json_body()
   }
 }
 
-#---------------------------
-#  Server Response Utility
-#---------------------------
+/* ---------------------------
+     Server Response Utility
+   --------------------------- */
 
 function send_json(object|array $body) 
 {

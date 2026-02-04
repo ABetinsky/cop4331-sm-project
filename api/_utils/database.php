@@ -61,9 +61,9 @@ function create_user(mysqli $db, string $username, string $email, string $hashed
   }
 }
 
-#-----------------------------
-#  Contact Database Utility
-#-----------------------------
+/* ----------------------------
+     Contact Database Utility
+   ---------------------------- */
 
 function check_contact_exists(mysqli $db, int $contact_id) 
 {

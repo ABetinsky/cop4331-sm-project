@@ -17,6 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] !== "POST") {
 $username = sanitize_input($_POST["username"] ?? "");
 $email = trim($_POST["email"] ?? "");
 $password = sanitize_input($_POST["password"] ?? "");
+$confirm_pw = sanitize_input($_POST["cpassword"] ?? "");
 
 /* Validate inputs */
 if (!validate_username($username)) {
@@ -35,6 +36,11 @@ if (!validate_password($password)) {
   http_response_code(400);
   echo json_encode(["error" => "Invalid password"]);
   exit;
+}
+
+if ($password != $confirm_pw) {
+  http_response_code(400);
+  echo json_encode(["error" => "Passwords do not match"]);
 }
 
 // Check if user with that username exists

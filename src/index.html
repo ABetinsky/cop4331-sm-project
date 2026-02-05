@@ -59,12 +59,12 @@
 
             <div class="form-box register">
                 <h2>Sign Up</h2>
-                <form action="#">
+                <form id="signup-form">
                     <div class="input-box">
                         <span class="icon"
                             ><ion-icon name="person-outline"></ion-icon
                         ></span>
-                        <input type="text" required />
+                        <input name="username" type="text" required />
                         <label>username</label>
                     </div>
 
@@ -86,7 +86,7 @@
                         <span class="icon"
                             ><ion-icon name="lock-closed-outline"></ion-icon
                         ></span>
-                        <input type="password" required />
+                        <input name="password" type="password" required />
                         <label>password</label>
                     </div>
 
@@ -94,7 +94,7 @@
                         <span class="icon"
                             ><ion-icon name="lock-closed"></ion-icon
                         ></span>
-                        <input type="password" required />
+                        <input name="confirm-password" type="password" required />
                         <label>confirm password</label>
                     </div>
 

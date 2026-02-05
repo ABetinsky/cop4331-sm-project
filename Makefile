@@ -1,2 +1,2 @@
 dev:
-	php -S localhost:8000 -t frontEndFiles
+	php -S localhost:8000 -t src

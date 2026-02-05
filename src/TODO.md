@@ -27,14 +27,8 @@ Adam:
 4. Fix fonts and/or finish About us page if time allows
 
 Darren:
-1. Make the page of contacts WITHOUT API implementation
- - Make sure to include the static header bar (so including header.css and the inital section from the HTML files)
- - Allow for partial searching, adding a contact, deleting a contact, and anything else required in a clean-easy to read format.
- - Let there be a refresh function
- - Try to make it look officey
-
-2. Change the photo buttons on the static bar to icons (basically change header.css and possible the header section in each html file)
- - MAKE SURE TO WRITE DOWN LINKS OF ANY ICON OR PHOTO YOU GET
-
+1. Fix contacts page. (Local and use a temp session in order to access)
+2. Work on search API and use partial matchmaking.
+3. Work on About us Page.
 
 

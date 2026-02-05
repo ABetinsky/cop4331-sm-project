@@ -33,7 +33,7 @@ function find_user_for_login(mysqli $db, string $username, string $hashed_passwo
 
   $result = $statement->get_result();
 
-  return $result->fetch_assoc();
+  return $result;
 }
 
 # Check if user with email already exists

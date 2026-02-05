@@ -1,7 +1,10 @@
 async function loadContacts() {
     const q = document.getElementById("search").value;
 
-    const res = await fetch("/api/contacts.php?q=" + encodeURIComponent(q));
+    // temporary user id
+    const userId = 1;
+
+    const res = await fetch(`/api/users/${userId}/contacts.php?q=` + encodeURIComponent(q));
     const data = await res.json();
 
     const container = document.getElementById("contacts");
@@ -45,7 +48,10 @@ async function addContact() {
         return;
     }
 
-    await fetch("/api/contacts.php", {
+    // temporary user id - REMOVE LATER
+    const userId = 1
+
+    await fetch(`/api/users/${userId}/contacts`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -68,7 +74,10 @@ async function addContact() {
 async function deleteContact(id) {
     if (!confirm("Delete this contact?")) return;
 
-    await fetch("/api/contacts.php", {
+    // temporary user id - REMOVE LATER
+    const userId = 1;
+
+    await fetch(`/api/users/${userId}/contacts`, {
         method: "DELETE",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ contact_id: id })
@@ -85,7 +94,10 @@ async function editContact(id, first, last, phone, email) {
 
     if (!newFirst || !newLast) return;
 
-    await fetch("/api/contacts.php", {
+    // temporary user id - REMOVE LATER
+    const userId = 1;
+
+    await fetch("/api/users/${userId}/contacts", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

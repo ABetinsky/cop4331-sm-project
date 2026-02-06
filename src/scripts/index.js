@@ -39,46 +39,59 @@ function showAlert(message, type = "success", icon = "checkmark-outline") {
 }
 
 /* Signup functionality */
-signupForm.addEventListener("click", async (event) => {
+signupForm.addEventListener("submit", async (event) => {
   event.preventDefault();
 
-  const formData = new FormData(event.target);
+  const formData = new FormData(event.currentTarget);
   const url = "/api/user/signup.php";
 
   try {
     const request = await fetch(url, {
       method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: new URLSearchParams(formData),
     });
 
-    if (request.ok) {
+    const data = await request.json();
+
+    if (data.success) {
       showAlert("Account created", "success", "checkmark-outline");
+    } else {
+      showAlert(data.message || "Signup failed", "error", "close-outline");
     }
-  } catch (e) {
-    showAlert("Try again", "error", "close-outline");
+  } catch {
+    showAlert("Server error", "error", "close-outline");
   }
 });
 
 /* Login functionality */
-loginForm.addEventListener("click", async (event) => {
+loginForm.addEventListener("submit", async (event) => {
   event.preventDefault();
 
-  const formData = new FormData(event.target);
+  const formData = new FormData(event.currentTarget);
   const url = "/api/user/login.php";
 
   try {
     const request = await fetch(url, {
       method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: new URLSearchParams(formData),
     });
 
-    if (request.ok) {
+    const data = await request.json();
+
+    if (data.success) {
       showAlert("Login successful", "success", "checkmark-outline");
-      window.location.href = "/contacts.html";
+
+      setTimeout(() => {
+        window.location.href = "/contacts.html";
+      }, 500);
+    } else {
+      showAlert(
+        data.message || "Incorrect credentials",
+        "error",
+        "close-outline",
+      );
     }
-  } catch (e) {
-    showAlert("Incorrect credentials", "error", "close-outline")
+  } catch {
+    showAlert("Server error", "error", "close-outline");
   }
 });

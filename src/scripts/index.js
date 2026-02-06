@@ -39,7 +39,7 @@ function showAlert(message, type = "success", icon = "checkmark-outline") {
 }
 
 /* Signup functionality */
-signupForm.addEventListener("submit", async (event) => {
+signupForm.addEventListener("click", async (event) => {
   event.preventDefault();
 
   const formData = new FormData(event.target);
@@ -61,7 +61,7 @@ signupForm.addEventListener("submit", async (event) => {
 });
 
 /* Login functionality */
-loginForm.addEventListener("submit", async (event) => {
+loginForm.addEventListener("click", async (event) => {
   event.preventDefault();
 
   const formData = new FormData(event.target);

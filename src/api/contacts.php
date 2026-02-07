@@ -4,7 +4,6 @@ require __DIR__ . '/_utils/database.php';
 require __DIR__ . '/_utils/http.php';
 require __DIR__ . '/_utils/api.php';
 require __DIR__ . '/_utils/session.php';
-require __DIR__ . '/../vendor/autoload.php';
 
 /*-----------------
     Session check

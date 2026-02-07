@@ -42,19 +42,19 @@ function send_json(object|array $body)
 
 function send_result(object|array $result) 
 {
-  $body = ["status" => "success", "result" => array_values((array)$result)];
+  $body = ["success" => true, "result" => array_values((array)$result)];
   send_json($body);
 }
 
 function send_error(string $msg, int $error_code = 500) 
 {
   http_response_code($error_code);
-  $body = ["error" => $msg];
+  $body = ["success" => false, "error" => $msg];
   send_json($body);
 }
 
-function send_message($msg) 
+function send_success($msg) 
 {
-  $body = ["message" => $msg];
+  $body = ["success" => true, "message" => $msg];
   send_json($body);
 }

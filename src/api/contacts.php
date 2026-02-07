@@ -4,7 +4,6 @@ require __DIR__ . '/_utils/database.php';
 require __DIR__ . '/_utils/http.php';
 require __DIR__ . '/_utils/api.php';
 require __DIR__ . '/_utils/session.php';
-require __DIR__ . '/../vendor/autoload.php';
 
 /*-----------------
     Session check
@@ -94,7 +93,7 @@ if (get_request_method() === 'POST') {
   $db_connection->close();
 
   $success
-    ? send_message("Successfully added contact")
+    ? send_success("Successfully added contact")
     : send_error("Could not add contact", 500);
 }
 
@@ -104,7 +103,7 @@ else if (get_request_method() === 'PUT') {
   $db_connection->close();
 
   $success
-    ? send_message("Successfully updated contact")
+    ? send_success("Successfully updated contact")
     : send_error("Could not update contact", 500);
 }
 
@@ -114,7 +113,7 @@ else if (get_request_method() === 'DELETE') {
   $db_connection->close();
 
   $success
-    ? send_message("Successfully removed contact")
+    ? send_success("Successfully removed contact")
     : send_error("Could not remove contact", 500);
 }
 

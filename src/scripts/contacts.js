@@ -13,24 +13,31 @@ async function loadContacts() {
     }
 
     data.result.forEach(c => {
-        const div = document.createElement("div");
-        div.className = "contact";
+        container.innerHTML = "";
 
-        div.innerHTML = `
-      <div class="name">${c.first_name} ${c.last_name}</div>
-      <div>${c.phone ?? ""}</div>
-      <div>${c.email ?? ""}</div>
-      <div class="actions">
-        <button onclick="editContact(${c.id}, '${escapeStr(c.first_name)}', '${escapeStr(c.last_name)}', '${escapeStr(c.phone)}', '${escapeStr(c.email)}')">
-          Edit
-        </button>
-        <button onclick="deleteContact(${c.id})">
-          Delete
-        </button>
-      </div>
+        data.result.forEach(c => {
+            const row = document.createElement("tr");
+
+            row.innerHTML = `
+        <td>${c.first_name} ${c.last_name}</td>
+        <td>${c.email ?? ""}</td>
+        <td>${c.phone ?? ""}</td>
+        <td class="actions">
+            <button onclick="editContact(
+                ${c.id},
+                '${escapeStr(c.first_name)}',
+                '${escapeStr(c.last_name)}',
+                '${escapeStr(c.phone)}',
+                '${escapeStr(c.email)}'
+            )">Edit</button>
+            <button class="delete" onclick="deleteContact(${c.id})">
+                Delete
+            </button>
+        </td>
     `;
 
-        container.appendChild(div);
+            container.appendChild(row);
+        });
     });
 }
 

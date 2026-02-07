@@ -1,16 +1,20 @@
-body {
-    font-family: Arial, sans-serif;
-    max-width: 900px;
-    margin: 100px auto;
-    padding: 0 20px;
-
+html {
+    min-height: 100%;
     background-image: url("../images/backgroundPictures/landingPageBG.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-
-    color: white;
 }
+
+body {
+    font-family: Arial, sans-serif;
+    max-width: 900px;
+    margin: 100px auto 40px;
+    padding: 0 20px;
+    color: white;
+    background: transparent;
+}
+
 
 header {
     position: fixed;

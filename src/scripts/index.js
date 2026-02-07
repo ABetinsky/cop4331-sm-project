@@ -24,7 +24,7 @@ function showAlert(message, type = "success", icon = "checkmark-outline") {
 
   alert.classList.add(type);
   text.textContent = message;
-  iconEl.setAttribute("name", icon);
+  iconEl.setAttribute("name", icon)
 
   document.body.appendChild(clone);
 
@@ -42,21 +42,25 @@ function showAlert(message, type = "success", icon = "checkmark-outline") {
 signupForm.addEventListener("submit", async (event) => {
   event.preventDefault();
 
-  const formData = new FormData(event.target);
-  const url = "/api/user/signup.php";
+  const formData = new FormData(event.currentTarget);
+  const url = "api/user/signup.php";
 
   try {
     const request = await fetch(url, {
       method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: new URLSearchParams(formData),
     });
 
-    if (request.ok) {
+    const data = await request.json();
+
+    if (data.success) {
       showAlert("Account created", "success", "checkmark-outline");
+      authModal.classList.remove("active");
+    } else {
+      showAlert(data.message || "Signup failed", "error", "close-outline");
     }
-  } catch (e) {
-    showAlert("Try again", "error", "close-outline");
+  } catch {
+    showAlert("Server error", "error", "close-outline");
   }
 });
 
@@ -64,21 +68,30 @@ signupForm.addEventListener("submit", async (event) => {
 loginForm.addEventListener("submit", async (event) => {
   event.preventDefault();
 
-  const formData = new FormData(event.target);
-  const url = "/api/user/login.php";
+  const formData = new FormData(event.currentTarget);
+  const url = "api/user/login.php";
 
   try {
     const request = await fetch(url, {
       method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: new URLSearchParams(formData),
     });
 
-    if (request.ok) {
-      showAlert("Login successful", "success", "checkmark-outline");
-      window.location.href = "/contacts.html";
+    const data = await request.json();
+
+    if (data.success) {
+      showAlert("Account created", "success", "checkmark-outline");
+      setTimeout(function() {
+          window.location.href = "contacts.html";
+      }, 500);
+    } else {
+      showAlert(
+        data.message || data.error || "Incorrect credentials",
+        "error",
+        "close-outline",
+      );
     }
-  } catch (e) {
-    showAlert("Incorrect credentials", "error", "close-outline")
+  } catch {
+    showAlert("Server error", "error", "close-outline");
   }
 });

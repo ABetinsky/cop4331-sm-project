@@ -1,95 +1,101 @@
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <title>My Contacts</title>
-    <link href="CSS/contacts.css" rel="stylesheet" />
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8" />
+        <title>My Contacts</title>
+        <link href="CSS/contacts.css" rel="stylesheet" />
+    </head>
+    <body>
+        <header>
+            <h1 class="logo">My Contacts</h1>
+            <div class="clock">
+                <span id="date"></span>
+                <span id="time"></span>
+            </div>
+            <nav class="navigation">
+                <a href="about.html">About us</a>
+            </nav>
+        </header>
 
-    <header>
-        <h1 class="logo">My Contacts</h1>
-        <nav class="navigation">
-            <a href="about.html">About us</a>
-        </nav>
-    </header>
+        <div class="card">
+            <h3>Add Contact</h3>
 
-    <div class="card">
-        <h3>Add Contact</h3>
-
-        <form method="POST" action="#">
-            <div class="name-row">
-                <div class="field">
-                    <label for="first_name">First Name</label>
-                    <input
+            <form method="POST" action="#">
+                <div class="name-row">
+                    <div class="field">
+                        <label for="first_name">First Name</label>
+                        <input
                             required
                             type="text"
                             id="first_name"
                             name="first_name"
                             placeholder="Barack"
-                    />
-                </div>
+                        />
+                    </div>
 
-                <div class="field">
-                    <label for="last_name">Last Name</label>
-                    <input
+                    <div class="field">
+                        <label for="last_name">Last Name</label>
+                        <input
                             required
                             type="text"
                             id="last_name"
                             name="last_name"
                             placeholder="Obama"
-                    />
+                        />
+                    </div>
                 </div>
-            </div>
 
-            <label for="email">Email</label>
-            <input
+                <label for="email">Email</label>
+                <input
                     required
                     type="email"
                     id="email"
                     name="email"
                     placeholder="meme@example.com"
-            />
+                />
 
-            <label for="phone">Phone</label>
-            <input
+                <label for="phone">Phone</label>
+                <input
                     type="tel"
                     id="phone"
                     name="phone"
                     placeholder="123-456-7890"
-            />
+                />
 
-            <button type="button" onclick="addContact()">Add Contact</button>
-        </form>
-    </div>
+                <button type="button" onclick="addContact()">
+                    Add Contact
+                </button>
+            </form>
+        </div>
 
-    <div class="card">
-        <h3>Contacts</h3>
+        <div class="card">
+            <h3>Contacts</h3>
 
-        <input
+            <input
                 id="search"
                 type="text"
                 placeholder="Search for Contacts..."
                 onkeyup="loadContacts()"
-        />
+            />
 
-        <table>
-            <thead>
-            <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Phone</th>
-                <th>Actions</th>
-            </tr>
-            </thead>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
 
-            <!-- IMPORTANT: ONLY THIS gets id="contacts" -->
-            <tbody id="contacts">
-            <!-- JS inserts <tr> rows here -->
-            </tbody>
-        </table>
-    </div>
-
-    <script src="/scripts/contacts.js"></script>
-</body>
+                <!-- IMPORTANT: ONLY THIS gets id="contacts" -->
+                <tbody id="contacts">
+                    <!-- JS inserts <tr> rows here -->
+                </tbody>
+            </table>
+        </div>
+        
+        <script src="scripts/contacts.js"></script>
+        <script src="scripts/clock.js"></script>
+    </body>
 </html>

@@ -79,9 +79,9 @@ function create_user(mysqli $db, string $username, string $email, string $hashed
   }
 }
 
-/* ----------------------------
-     Contact Database Utility
-   ---------------------------- */
+/*----------------------------
+    Contact Database Utility
+  ----------------------------*/
 
 function check_contact_exists(mysqli $db, int $contact_id)
 {
@@ -118,36 +118,35 @@ function remove_contact(mysqli $db, int $user_id, int $contact_id)
   return (bool) $statement->execute();
 }
 
-function get_contacts($db, $user_id, $q = '') {
+function get_contacts($db, $user_id, $q = '') 
+{
+  if ($q === '') {
+    $stmt = $db->prepare("
+      SELECT id, first_name, last_name, phone, email
+      FROM contacts
+      WHERE user_id = ?
+      ORDER BY last_name, first_name
+    ");
+    $stmt->bind_param("i", $user_id);
+  } else {
+    $search = "%" . $q . "%";
+    $stmt = $db->prepare("
+      SELECT id, first_name, last_name, phone, email
+      FROM contacts
+      WHERE user_id = ?
+        AND (
+          first_name LIKE ?
+          OR last_name LIKE ?
+          OR phone LIKE ?
+          OR email LIKE ?
+        )
+      ORDER BY last_name, first_name
+    ");
+    $stmt->bind_param("issss", $user_id, $search, $search, $search, $search);
+  }
 
-    if ($q === '') {
-        $stmt = $db->prepare("
-            SELECT id, first_name, last_name, phone, email
-            FROM contacts
-            WHERE user_id = ?
-            ORDER BY last_name, first_name
-        ");
-        $stmt->bind_param("i", $user_id);
-    } else {
-        $search = "%" . $q . "%";
-        $stmt = $db->prepare("
-            SELECT id, first_name, last_name, phone, email
-            FROM contacts
-            WHERE user_id = ?
-              AND (
-                first_name LIKE ?
-                OR last_name LIKE ?
-                OR phone LIKE ?
-                OR email LIKE ?
-              )
-            ORDER BY last_name, first_name
-        ");
-        $stmt->bind_param("issss", $user_id, $search, $search, $search, $search);
-    }
+  $stmt->execute();
+  $result = $stmt->get_result();
 
-    $stmt->execute();
-    $result = $stmt->get_result();
-
-    return $result->fetch_all(MYSQLI_ASSOC);
+  return $result->fetch_all(MYSQLI_ASSOC);
 }
-

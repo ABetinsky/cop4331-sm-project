@@ -79,7 +79,7 @@ loginForm.addEventListener("submit", async (event) => {
 
     const data = await request.json();
 
-    if (data.success || data.error == "Already logged in") {
+    if (data.success) {
       showAlert("Authenticated", "success", "checkmark-outline");
       setTimeout(function () {
         window.location.href = "contacts.html";

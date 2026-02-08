@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] !== "POST") {
 
 if (is_logged_in()) {
     http_response_code(403);
-    echo json_encode(["success" => false, "error" => "Already logged in"]);
+    echo json_encode(["success" => true, "message" => "Already logged in"]);
     exit();
 }
 

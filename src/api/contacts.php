@@ -150,7 +150,7 @@ else if (get_request_method() === 'GET') {
 
   $success
     ? send_result($contacts)
-    : send_error("Could not get contacts");
+    : send_error("Could not get contacts", 500);
 }
 
 else {

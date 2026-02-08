@@ -71,9 +71,14 @@ $db_connection = init_db_connection();
     Confirm user exists
   -----------------------*/
 
-if (!check_user_exists($db_connection, $user_id)) {
+try {
+  if (!check_user_exists($db_connection, $user_id)) {
+    $db_connection->close();
+    send_error("User does not exist", 400);
+  }
+} catch (Throwable $e) {
   $db_connection->close();
-  send_error("User does not exist", 400);
+  send_error("Internal Server Error", 400);
 }
 
 /*---------------------------
@@ -92,7 +97,12 @@ if ($uses_contact_id && !check_contact_exists($db_connection, $contact_id)) {
 
 if (get_request_method() === 'POST') {
 
-  $success = add_contact($db_connection, $user_id, $first_name, $last_name, $phone, $email);
+  $success = false;
+  try {
+    $success = add_contact($db_connection, $user_id, $first_name, $last_name, $phone, $email);
+  } catch(Throwable $e) {
+    error_log($e->getMessage());
+  }
   $db_connection->close();
 
   $success
@@ -102,7 +112,12 @@ if (get_request_method() === 'POST') {
 
 else if (get_request_method() === 'PUT') {
 
-  $success = modify_contact($db_connection, $user_id, $contact_id, $first_name, $last_name, $phone, $email);
+  $success = false;
+  try {
+    $success = modify_contact($db_connection, $user_id, $contact_id, $first_name, $last_name, $phone, $email);
+  } catch(Throwable $e) {
+    error_log($e->getMessage());
+  }
   $db_connection->close();
 
   $success
@@ -112,7 +127,12 @@ else if (get_request_method() === 'PUT') {
 
 else if (get_request_method() === 'DELETE') {
 
-  $success = remove_contact($db_connection, $user_id, $contact_id);
+  $success = false;
+  try {
+    $success = remove_contact($db_connection, $user_id, $contact_id);
+  } catch(Throwable $e) {
+    error_log($e->getMessage());
+  }
   $db_connection->close();
 
   $success
@@ -122,13 +142,25 @@ else if (get_request_method() === 'DELETE') {
 
 else if (get_request_method() === 'GET') {
 
+<<<<<<< HEAD
   $q = $_GET['q'] ?? '';
   $q = sanitize_input($q);
 
   $contacts = get_contacts($db_connection, $user_id, $q);
+=======
+  $success = false;
+  try {
+    $contacts = get_contacts($db_connection, $user_id);
+    $success = true;
+  } catch(Throwable $e) {
+    error_log($e->getMessage());
+  }
+>>>>>>> bbef6efd566c18f44545da5b8750f1ca9e65ab2e
   $db_connection->close();
 
-  send_result($contacts);
+  $success
+    ? send_result($contacts)
+    : send_error("Could not get contacts", 500);
 }
 
 

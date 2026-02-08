@@ -11,6 +11,10 @@
     <body>
         <header>
             <h1 class="logo">Contact Manager</h1>
+            <div class="clock">
+                <span id="date"></span>
+                <span id="time"></span>
+            </div>
             <nav class="navigation">
                 <a href="about.html">About us</a>
             </nav>
@@ -34,7 +38,12 @@
                         <span class="icon"
                             ><ion-icon name="mail-outline"></ion-icon
                         ></span>
-                        <input name="username" type="text" spellcheck="false" required />
+                        <input
+                            name="username"
+                            type="text"
+                            spellcheck="false"
+                            required
+                        />
                         <label>username</label>
                     </div>
 
@@ -66,7 +75,12 @@
                         <span class="icon"
                             ><ion-icon name="person-outline"></ion-icon
                         ></span>
-                        <input name="username" type="text" spellcheck="false" required />
+                        <input
+                            name="username"
+                            type="text"
+                            spellcheck="false"
+                            required
+                        />
                         <label>username</label>
                     </div>
 
@@ -120,6 +134,7 @@
         </main>
 
         <script src="scripts/index.js"></script>
+        <script src="scripts/clock.js"></script>
         <script
             type="module"
             src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"

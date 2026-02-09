@@ -10,3 +10,7 @@ GPT Images: Copier Up Close (USED), Copy Logo, Human Resources
 
 New Office background:
 https://stock.adobe.com/search?k=empty+office
+
+Person Placeholder Image:
+Link: https://commons.wikimedia.org/wiki/File:Person_Image_Placeholder.png
+License: https://creativecommons.org/licenses/by-sa/4.0/

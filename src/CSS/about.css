@@ -9,6 +9,8 @@ html {
 
 body {
   font-family: Arial, sans-serif;
+
+  min-height: 100vh;
   max-width: 1500px;
   margin: 100px auto 40px;
   padding: 0 20px;
@@ -16,14 +18,23 @@ body {
   background: transparent;
 }
 
+main {
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+}
+
 .info-title{
+  justify-content: center;
   font-size: 3em;
 }
 
 .card {
+  min-width: 700px;
   max-width: 1000px;
-  position: relative;
-  
 
   background: rgba(255, 255, 255, 0.18);
   -webkit-backdrop-filter: blur(18px);

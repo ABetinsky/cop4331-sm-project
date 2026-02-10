@@ -1,9 +1,12 @@
 /*Code written by Adam Betinsky, heavily edited by Benjamin Quintero*/
 html {
   min-height: 100%;
+
   background-image: url("../images/background/hec-conf-room.jpg");
   background-size: cover;
   background-position: center;
+  background-color: rgb(0,0,0,0.4);
+  background-blend-mode: darken;
   background-repeat: no-repeat;
 }
 
@@ -40,6 +43,8 @@ main {
   -webkit-backdrop-filter: blur(18px);
   backdrop-filter: blur(18px);
 
+  font-size: 1.2em;
+
   border: 1px solid rgba(255, 255, 255, 0.35);
   padding: 18px;
   border-radius: 10px;
@@ -61,6 +66,10 @@ main {
   padding: 18px;
   border-radius: 20px;
   margin-bottom: 18px;
+}
+
+.dev-intro{
+  font-size: 1.2em;
 }
 
 .card-img{

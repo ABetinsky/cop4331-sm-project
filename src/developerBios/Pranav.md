@@ -1,0 +1,1 @@
+Just a dude who's into competitive programming and building software.

@@ -2,24 +2,32 @@
 html {
   min-height: 100%;
   background-image: url("../images/background/hec-conf-room.jpg");
-  background-size: 110%;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 
 body {
   font-family: Arial, sans-serif;
-  max-width: 900px;
+  max-width: 1500px;
   margin: 100px auto 40px;
   padding: 0 20px;
   color: white;
   background: transparent;
 }
 
+.info-title{
+  font-size: 3em;
+}
+
 .card {
+  max-width: 1000px;
+  position: relative;
+  
+
   background: rgba(255, 255, 255, 0.18);
-  backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
 
   border: 1px solid rgba(255, 255, 255, 0.35);
   padding: 18px;

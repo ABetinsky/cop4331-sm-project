@@ -81,6 +81,29 @@ body {
     transform-origin: left;
 }
 
+@media (max-width: 600px) {
+    body {
+        padding-top: 60px;
+    }
+
+    .header {
+        height: 60px;
+    }
+
+    .logo {
+        font-size: 1.4em;
+    }
+
+    .clock {
+        display: none;
+    }
+
+    .navigation a {
+        font-size: 0.9em;
+        margin-left: 10px;
+    }
+}
+
 .card {
     background: rgba(255, 255, 255, 0.18);
     backdrop-filter: blur(18px);

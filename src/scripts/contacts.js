@@ -4,9 +4,9 @@ async function loadContacts() {
   const res = await fetch(`/api/contacts.php?q=` + encodeURIComponent(q), {
     credentials: "include",
   });
-
-  if (!res.ok) {
-    console.error("Failed to load contacts:", res.status);
+  
+  if (res.status == 401 || !res.ok) {
+    window.location.href = "../index.html";
     return;
   }
 

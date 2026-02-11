@@ -1,11 +1,13 @@
-document.getElementById("logout")?.addEventListener("click", async () => {
+async function doLogout(event) {
+  event.preventDefault();
+
   await fetch("../api/logout.php", {
     method: "POST",
     credentials: "include",
   });
 
-  window.location.href = "../index.html";
-});
+  window.location.href = "index.html";
+}
 
 async function loadContacts() {
   const q = document.getElementById("search").value;

@@ -1,7 +1,7 @@
 async function doLogout(event) {
   event.preventDefault();
 
-  await fetch("../api/logout.php", {
+  await fetch("api/logout.php", {
     method: "POST",
     credentials: "include",
   });
@@ -17,7 +17,7 @@ async function loadContacts() {
   });
 
   if (res.status == 401 || !res.ok) {
-    window.location.href = "../index.html";
+    window.location.href = "index.html";
     return;
   }
 
@@ -87,6 +87,11 @@ async function addContact() {
       "error",
       "close-outline",
     );
+    if (data.error == "Not logged in") {
+      setTimeout(() => {
+        window.location.href = "index.html";
+      }, 3000);
+    }
     return;
   }
 

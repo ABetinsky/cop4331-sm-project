@@ -23,7 +23,7 @@ tags:
 
 paths:
 
-  /signup:
+  /user/signup.php:
     post:
       tags:
       - authentication
@@ -73,7 +73,7 @@ paths:
           schema:
               $ref: "#/definitions/Error"
 
-  /login:
+  /user/login.php:
     post:
       tags:
       - authentication
@@ -114,7 +114,7 @@ paths:
           schema:
               $ref: "#/definitions/Error"
 
-  /logout:
+  /users/logout.php:
     post:
       tags:
       - authentication
@@ -133,7 +133,7 @@ paths:
         405:
           description: Method Not Allowed
 
-  /users/contacts:
+  /contacts.php:
 
     get:
       tags:

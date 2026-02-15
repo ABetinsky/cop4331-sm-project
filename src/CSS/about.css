@@ -55,6 +55,7 @@ html {
   text-decoration: none;
   font-weight: 500;
   margin-left: 15px;
+  margin-right:auto;
 }
 
 .navigation a::after {
@@ -122,8 +123,7 @@ main {
 }
 
 .card {
-  min-width: 700px;
-  max-width: 1000px;
+  width:1200px;
 
   background: rgba(255, 255, 255, 0.18);
   -webkit-backdrop-filter: blur(18px);
@@ -140,7 +140,7 @@ main {
 
 .card-img{
     max-width: auto;
-    max-height: 250px;
+    height: 300px;
 
     padding: 25px;
     border-radius: 20px;

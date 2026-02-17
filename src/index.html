@@ -1,152 +1,122 @@
 <!doctype html>
 
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>COPY - Landing Page</title>
-        <link href="CSS/index.css" rel="stylesheet" />
-    </head>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>COPY - Landing Page</title>
+    <link href="CSS/index.css" rel="stylesheet" />
+  </head>
 
-    <body>
-        <section class="header">
-            <h1 class="logo">COPY</h1>
-            <div class="clock">
-                <span id="date"></span>
-                <span id="time"></span>
-            </div>
-            <nav class="navigation">
-                <a href="about.html">About us</a>
-            </nav>
-        </section>
+  <body>
+    <section class="header">
+      <h1 class="logo">COPY</h1>
+      <div class="clock">
+        <span id="date"></span>
+        <span id="time"></span>
+      </div>
+      <nav class="navigation">
+        <a href="about.html">About us</a>
+      </nav>
+    </section>
 
-        <template id="alert-template">
-            <div class="alert-box">
-                <div class="alert">
-                    <ion-icon></ion-icon>
-                    <br />
-                    <span></span>
-                </div>
-            </div>
-        </template>
+    <template id="alert-template">
+      <div class="alert-box">
+        <div class="alert">
+          <ion-icon></ion-icon>
+          <br />
+          <span></span>
+        </div>
+      </div>
+    </template>
 
-        <main class="auth-modal">
-            <div class="form-box login">
-                <h2>Login</h2>
-                <form id="login-form">
-                    <div class="input-box">
-                        <span class="icon"
-                            ><ion-icon name="mail-outline"></ion-icon
-                        ></span>
-                        <input
-                            name="username"
-                            type="text"
-                            spellcheck="false"
-                            required
-                        />
-                        <label>Username</label>
-                    </div>
+    <main class="auth-modal">
+      <div class="form-box login">
+        <h2>Login</h2>
+        <form id="login-form">
+          <div class="input-box">
+            <span class="icon"><ion-icon name="mail-outline"></ion-icon></span>
+            <input name="username" type="text" spellcheck="false" required />
+            <label>Username</label>
+          </div>
 
-                    <div class="input-box">
-                        <span class="icon"
-                            ><ion-icon name="lock-closed-outline"></ion-icon
-                        ></span>
-                        <input name="password" type="password" required />
-                        <label>Password</label>
-                    </div>
-                    <button type="submit" class="btn">Login</button>
-                    <div class="login-register">
-                        <p>
-                            Don't have an account?<a
-                                href="#"
-                                class="register-link"
-                            >
-                                Register</a
-                            >
-                        </p>
-                    </div>
-                </form>
-            </div>
+          <div class="input-box">
+            <span class="icon"
+              ><ion-icon name="lock-closed-outline"></ion-icon
+            ></span>
+            <input name="password" type="password" required />
+            <label>Password</label>
+          </div>
+          <button type="submit" class="btn">Login</button>
+          <div class="login-register">
+            <p>
+              Don't have an account?<a href="#" class="register-link">
+                Register</a
+              >
+            </p>
+          </div>
+        </form>
+      </div>
 
-            <div class="form-box register">
-                <h2>Sign Up</h2>
-                <form id="signup-form">
-                    <div class="input-box">
-                        <span class="icon"
-                            ><ion-icon name="person-outline"></ion-icon
-                        ></span>
-                        <input
-                            name="username"
-                            type="text"
-                            spellcheck="false"
-                            required
-                        />
-                        <label>Username</label>
-                    </div>
+      <div class="form-box register">
+        <h2>Sign Up</h2>
+        <form id="signup-form">
+          <div class="input-box">
+            <span class="icon"
+              ><ion-icon name="person-outline"></ion-icon
+            ></span>
+            <input name="username" type="text" spellcheck="false" required />
+            <label>Username</label>
+          </div>
 
-                    <p class="input-info">
-                        Length must be between 3 and 10 characters.
-                    </p>
+          <p class="input-info">Length must be between 3 and 10 characters.</p>
 
-                    <div class="input-box">
-                        <span class="icon"
-                            ><ion-icon name="mail-outline"></ion-icon
-                        ></span>
-                        <input
-                            type="email"
-                            name="email"
-                            autocomplete="email"
-                            placeholder=" "
-                            required
-                        />
-                        <label>Email</label>
-                    </div>
+          <div class="input-box">
+            <span class="icon"><ion-icon name="mail-outline"></ion-icon></span>
+            <input
+              type="email"
+              name="email"
+              autocomplete="email"
+              placeholder=" "
+              required
+            />
+            <label>Email</label>
+          </div>
 
-                    <div class="input-box">
-                        <span class="icon"
-                            ><ion-icon name="lock-closed-outline"></ion-icon
-                        ></span>
-                        <input name="password" type="password" required />
-                        <label>Password</label>
-                    </div>
+          <div class="input-box">
+            <span class="icon"
+              ><ion-icon name="lock-closed-outline"></ion-icon
+            ></span>
+            <input name="password" type="password" required />
+            <label>Password</label>
+          </div>
 
-                    <p class="input-info">
-                        Must contain atleast 8 characters and one number.
-                    </p>
+          <p class="input-info">
+            Must contain atleast 8 characters and one number.
+          </p>
 
-                    <div class="input-box">
-                        <span class="icon"
-                            ><ion-icon name="lock-closed"></ion-icon
-                        ></span>
-                        <input
-                            name="confirm-password"
-                            type="password"
-                            required
-                        />
-                        <label>Confirm password</label>
-                    </div>
+          <div class="input-box">
+            <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+            <input name="confirm-password" type="password" required />
+            <label>Confirm password</label>
+          </div>
 
-                    <button type="submit" class="btn">Register</button>
-                    <div class="login-register">
-                        <p>
-                            Already have an account?<a
-                                href="#"
-                                class="login-link"
-                            >
-                                Login</a
-                            >
-                        </p>
-                    </div>
-                </form>
-            </div>
-        </main>
+          <button type="submit" class="btn">Register</button>
+          <div class="login-register">
+            <p>
+              Already have an account?<a href="#" class="login-link"> Login</a>
+            </p>
+          </div>
+        </form>
+      </div>
+    </main>
 
-        <script src="scripts/index.js"></script>
-        <script src="scripts/clock.js"></script>
-        <script src="scripts/messages.js"></script>
-        <script
-            type="module"
-            src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-        ></script>
-    </body>
+    <script src="scripts/index.js"></script>
+    <script src="scripts/clock.js"></script>
+    <script src="scripts/messages.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+  </body>
 </html>

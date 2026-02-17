@@ -1,11 +1,10 @@
 /*Code written by Adam Betinsky, heavily edited by Benjamin Quintero*/
 html {
   min-height: 100%;
-
   background-image: url("../images/background/hec-conf-room.jpg");
   background-size: cover;
   background-position: center;
-  background-color: rgba(0,0,0,0.4);
+  background-color: rgba(0, 0, 0, 0.4);
   background-blend-mode: darken;
   background-repeat: no-repeat;
 }
@@ -85,30 +84,28 @@ body {
 
   margin: 100px auto 40px;
   padding: 0 20px;
-  
+
   color: white;
   background: transparent;
 }
 
-body::-webkit-scrollbar{
+body::-webkit-scrollbar {
   display: none;
 }
 
 main {
-  
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  
 }
 
-.info-title{
+.info-title {
   justify-content: center;
   font-size: 3em;
 }
 
-.info{
+.info {
   background: rgba(255, 255, 255, 0.18);
   -webkit-backdrop-filter: blur(18px);
   backdrop-filter: blur(18px);
@@ -121,13 +118,12 @@ main {
   margin-bottom: 18px;
 }
 
-
-.dev-intro{
+.dev-intro {
   font-size: 1.2em;
 }
 
 .card {
-  width:1200px;
+  width: 1200px;
 
   background: rgba(255, 255, 255, 0.18);
   -webkit-backdrop-filter: blur(18px);
@@ -142,24 +138,18 @@ main {
   margin-bottom: 18px;
 }
 
-.card-img{
-    max-width: auto;
-    height: 300px;
+.card-img {
+  max-width: auto;
+  height: 300px;
 
-    padding: 25px;
-    border-radius: 20px;
+  padding: 25px;
+  border-radius: 20px;
 }
 
-.card-text{
+.card-text {
   display: flex;
   flex-direction: column;
   padding: 5px;
 }
-
-.nameColor
-{
-  background-color: red;
-}
-
 
 /*Add header at the end, don't worry about this now.*/

@@ -2,11 +2,11 @@ Adam is a Junior at UCF studying Computer Science. He is originally from Minneap
 
 Adam's Contributions to COPY include:
 
-- Organizing team meetings
-- Ensuring the project moved on schedule
-- Providing templates of what the Frontend could look like
-- Testing the website for bugs
-- Building the powerpoint presentation and finalizing the GitHub repository
+- Organizing team meetings.
+- Ensuring the project moved on schedule.
+- Providing templates of what the Frontend could look like.
+- Testing the website for bugs.
+- Building the powerpoint presentation and finalizing the GitHub repository.
 
 Outside of classes, Adam is a Teaching Assistant for 2 Computer
 Science courses at UCF: Computer Science I and Systems Software. He

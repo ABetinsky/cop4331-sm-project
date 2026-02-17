@@ -47,13 +47,11 @@ body {
 }
 
 .clock {
-  position: absolute;
-  left: 49%;
-  transform: translateX(-50%);
+  margin-left: 1%;
   display: flex;
-  color: rgb(255, 255, 255);
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
+  color: white;
 }
 
 .navigation a {

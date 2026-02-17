@@ -156,5 +156,10 @@ main {
   padding: 5px;
 }
 
+.nameColor
+{
+  background-color: red;
+}
+
 
 /*Add header at the end, don't worry about this now.*/

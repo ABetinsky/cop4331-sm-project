@@ -5,6 +5,11 @@ const registerLink = document.querySelector(".register-link");
 const loginForm = document.getElementById("login-form");
 const signupForm = document.getElementById("signup-form");
 
+(async () => {
+  const res = await fetch("../api/user/auth_status.php", { credentials: "include" });
+  if ((await res.json()).logged_in) location.replace("/contacts.html");
+})();
+
 registerLink.addEventListener("click", () => {
   authModal.classList.add("active");
 });

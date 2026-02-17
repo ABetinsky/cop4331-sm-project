@@ -47,13 +47,14 @@ body {
 }
 
 .clock {
-  position: absolute;
-  left: 49%;
-  transform: translateX(-50%);
+  margin-left: 1%;
   display: flex;
-  color: rgb(255, 255, 255);
   flex-direction: column;
-  align-items: center;
+  align-items: left;
+  font-family: "Poppins", sans-serif;
+  font-size: 1em;
+  line-height: 1.2;
+  color: white;
 }
 
 .navigation a {

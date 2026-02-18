@@ -28,7 +28,7 @@ Link to our website: https://copycm.com/
 - JavaScript
 - CSS
 ### Back end
-- PH
+- PHP
 - Linux
 - Apache 2.0
 - MySQL Server

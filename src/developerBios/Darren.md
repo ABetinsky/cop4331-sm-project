@@ -1,1 +1,1 @@
-Darren is a Computer Science student at UCF whos freetime consist of rock-climbing, reading, and brainrotting.
+Darren is a 3rd year Computer Science student at the University of Central Florida with a strong interest in software development and data systems, specializing in web scraping and data extraction. He also loves logic-based games and puzzles.

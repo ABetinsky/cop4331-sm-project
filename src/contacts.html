@@ -83,18 +83,23 @@
         onkeyup="loadContacts()"
       />
 
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Phone</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody id="contacts">
-        </tbody>
-      </table>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+
+          <!-- IMPORTANT: ONLY THIS gets id="contacts" -->
+          <tbody id="contacts">
+            <!-- JS inserts <tr> rows here -->
+          </tbody>
+        </table>
+      </div>
     </div>
 
     <script src="scripts/contacts.js"></script>

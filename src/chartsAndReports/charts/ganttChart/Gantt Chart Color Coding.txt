@@ -12,12 +12,12 @@ Darren - Orange
 
 Noah - Purple
 
-Pranav - Yellow
+Pranav - Ice Blue
 
 Andrew - Pink
 
-Frontend Developer - Navy Blue
+Yellow - Overall Project
 
-Backend Developer (Pranav and Darren) - Magenta
+Navy Blue - Subphase
 
-API Developer (Noah and Andrew) - Teal 
+Turquoise - Main Phase

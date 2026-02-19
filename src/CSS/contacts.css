@@ -114,6 +114,15 @@ body {
     font-size: 0.9em;
     margin-left: 10px;
   }
+
+  .table-wrapper {
+    overflow-x: auto;
+    width: 100%;
+  }
+
+  .table-wrapper table {
+    min-width: 600px;
+  }
 }
 
 /*body*/

@@ -1,4 +1,3 @@
-```markdown
 ## AI Assistance Disclosure
 This project was developed with assistance from generative AI tools:
 - **Tool**: ChatGPT 5.2 (By OpenAI)
@@ -10,7 +9,4 @@ All AI-generated code was reviewed, tested, and modified to meet
 assignment requirements. Final implementation reflects my understanding
 of the concepts.
 
-Adam Betinsky, Project Manager - 1/25/2026 at 6:39 PM
-
-```
-
+Adam Betinsky, Project Manager & Frontend Developer - 1/25/2026 at 6:39 PM

@@ -21,7 +21,7 @@ if (get_request_method() !== 'GET' && $data === null) {
     Extract inputs
   ------------------*/
 
-if (is_logged_in()) {
+if (!isset($_GET['user_id']) && is_logged_in()) {
   $user_id = session_user_id();
 } else {
   $user_id = $_GET['user_id'] ?? '';

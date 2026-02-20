@@ -1,4 +1,3 @@
-```markdown
 ## AI Assistance Disclosure
 This project was developed with assistance from generative AI tools:
 - **Tool**: ChatGPT 5.2 (By OpenAI)
@@ -11,6 +10,3 @@ assignment requirements. Final implementation reflects my understanding
 of the concepts.
 
 Darren Squires, Database Developer 02/06/2026
-
-```
-

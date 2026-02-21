@@ -19,6 +19,28 @@ async function doLogout(event) {
   if (!(await res.json()).logged_in) location.replace("index.html");
 })();
 
+function formatPhoneNumber(value) {
+  const digits = value.replace(/\D/g, "").substring(0, 10);
+
+  const area = digits.substring(0, 3);
+  const mid = digits.substring(3, 6);
+  const last = digits.substring(6, 10);
+
+  if (digits.length > 6) {
+    return `(${area}) ${mid}-${last}`;
+  } else if (digits.length > 3) {
+    return `(${area}) ${mid}`;
+  } else if (digits.length > 0) {
+    return `(${area}`;
+  }
+
+  return "";
+}
+
+function stripPhoneFormatting(value) {
+  return value.replace(/\D/g, "");
+}
+
 async function loadContacts() {
   const q = document.getElementById("search").value; // Current search query
 
@@ -52,7 +74,7 @@ async function loadContacts() {
     row.innerHTML = `
       <td>${c.first_name} ${c.last_name}</td>
       <td>${c.email ?? ""}</td>
-      <td>${c.phone ?? ""}</td>
+      <td>${c.phone ? formatPhoneNumber(c.phone) : ""}</td>
       <td class="actions">
         <button onclick="editContact(
           ${c.id},
@@ -74,7 +96,8 @@ async function loadContacts() {
 async function addContact() {
   const first = document.getElementById("first_name").value;
   const last = document.getElementById("last_name").value;
-  const phone = document.getElementById("phone").value;
+  const phoneRaw = document.getElementById("phone").value;
+  const phone = stripPhoneFormatting(phoneRaw);
   const email = document.getElementById("email").value;
 
   // Basic required field validation
@@ -160,7 +183,7 @@ function editContact(id, first, last, phone, email) {
       <input type="email" id="edit_email_${id}" value="${email ?? ""}" />
     </td>
     <td>
-      <input type="tel" id="edit_phone_${id}" value="${phone ?? ""}" />
+      <input type="tel" id="edit_phone_${id}" value="${phone ? formatPhoneNumber(phone) : ""}" maxlength="14"/>
     </td>
     <td class="actions">
       <button onclick="saveContact(${id})">Save</button>
@@ -169,11 +192,17 @@ function editContact(id, first, last, phone, email) {
   `;
 }
 
+const editPhone = document.getElementById(`edit_phone_${id}`);
+editPhone.addEventListener("input", (e) => {
+  e.target.value = formatPhoneNumber(e.target.value);
+});
+
 async function saveContact(id) {
   const first = document.getElementById(`edit_first_${id}`).value;
   const last = document.getElementById(`edit_last_${id}`).value;
   const email = document.getElementById(`edit_email_${id}`).value;
-  const phone = document.getElementById(`edit_phone_${id}`).value;
+  const phoneRaw = document.getElementById(`edit_phone_${id}`).value;
+  const phone = stripPhoneFormatting(phoneRaw);
 
   // Validate required fields before update
   if (!first || !last) {
@@ -213,3 +242,15 @@ function escapeStr(str) {
 
 // Load contacts when page initializes
 loadContacts();
+
+document.addEventListener("DOMContentLoaded", () => {
+  const phoneInput = document.getElementById("phone");
+
+  if (phoneInput) {
+    phoneInput.setAttribute("maxlength", "14");
+
+    phoneInput.addEventListener("input", (e) => {
+      e.target.value = formatPhoneNumber(e.target.value);
+    });
+  }
+});
